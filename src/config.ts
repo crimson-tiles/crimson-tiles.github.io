@@ -17,7 +17,7 @@ export const SCHEDULE = [
     title: 'Online Sessions',
     time: 'TBD',
     location: 'Mahjong Soul',
-    description: 'Online sessions coming soon. Check the Discord for updates.',
+    description: 'We don\'t actually have any scheduled online sessions atm but we totally should tbh.',
   },
 ]
 
