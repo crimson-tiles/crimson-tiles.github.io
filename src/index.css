@@ -1,25 +1,35 @@
 :root {
-  /* UA primary */
+  /* UA crimson - primary identity */
   --crimson: #9E1B32;
   --crimson-dark: #772432;
   --crimson-light: #D0103A;
+
+  /* Neutrals - warm cream instead of cold white for content bgs */
   --white: #FFFFFF;
+  --bone: #F5F1E8;
+  --bone-dark: #ECE6D6;
+  --ink: #1A1816;
+  --ink-soft: #3D3935;
+  --ink-mute: #6B6560;
 
-  /* UA secondary */
-  --gray-cap: #828A8F;
-  --gray-pach: #5F6A72;
-  --gray-chimes: #C1C6C9;
-  --ivory: #DAD7CB;
-  --teal: #005C84;
+  /* Supporting */
+  --felt: #1E3A52;
+  --felt-dark: #0E1E2B;
+  --gold: #C8A25B;
 
-  /* layout */
-  --max-width: 1080px;
-  --section-pad: 5rem 1.5rem;
+  /* Status colors */
+  --meeting-dot: #4ADE80;
+
+  /* Layout */
+  --max-width: 1320px;
+  --section-pad: 4.5rem 1.5rem;
 
   font-family: 'Inter', system-ui, sans-serif;
-  color: #1a1a1a;
-  background: var(--white);
+  color: var(--ink);
+  background: var(--bone);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 *,
@@ -34,15 +44,20 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  min-height: 100vh;
+}
+
 h1, h2, h3, h4 {
   font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 a {
   color: var(--crimson);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.15s;
 }
 
 a:hover {
@@ -52,6 +67,10 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+button {
+  font-family: inherit;
 }
 
 .container {

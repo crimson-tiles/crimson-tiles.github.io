@@ -1,0 +1,70 @@
+/* ============ pages ============ */
+.page {
+  padding-top: 64px;
+  min-height: 100vh;
+}
+
+.page-header {
+  background: var(--bone-dark);
+  padding: 3.5rem 1.5rem 2.5rem;
+  border-bottom: 1px solid rgba(26, 24, 22, 0.08);
+}
+
+.page-title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+}
+
+.page-lede {
+  color: var(--ink-mute);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.rules {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.rules li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.rules li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 5px;
+  height: 5px;
+  background: var(--crimson);
+  border-radius: 50%;
+}
+
+.rules code {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  background: rgba(158, 27, 50, 0.08);
+  color: var(--crimson);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.rules strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.page-section {
+  padding: 3rem 1.5rem 5rem;
+}
+

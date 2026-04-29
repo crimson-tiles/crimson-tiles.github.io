@@ -1,0 +1,96 @@
+/* ============ first time + officers ============ */
+.first-time-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.first-time-copy h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.first-time-copy p {
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+  font-size: 1.02rem;
+  max-width: 62ch;
+}
+
+.first-time-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.officers ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.officer-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+}
+
+.officer-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--crimson);
+  color: var(--bone);
+  display: grid;
+  place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.officer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.officer-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 0.3rem;
+}
+
+.officer-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+}
+
+.officer-name {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.officer-dot {
+  color: var(--ink-mute);
+  opacity: 0.5;
+}
+
+.officer-discord {
+  color: var(--ink-mute);
+  font-variant-numeric: tabular-nums;
+}
+

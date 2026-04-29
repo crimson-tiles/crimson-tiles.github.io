@@ -1,0 +1,53 @@
+/* ============ schedule ============ */
+.schedule-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.schedule-item {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 4px solid var(--crimson);
+  padding: 1.75rem;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.schedule-item h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+
+.schedule-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.schedule-meta .time {
+  color: var(--crimson);
+  font-weight: 600;
+}
+
+.schedule-meta .dot {
+  width: 3px;
+  height: 3px;
+  background: var(--ink-mute);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.schedule-meta .location {
+  color: var(--ink-mute);
+}
+
+.schedule-item p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+

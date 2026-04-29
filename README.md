@@ -2,7 +2,18 @@
 
 Website for the University of Alabama riichi mahjong club. Built with React, TypeScript, and Vite. Deployed to GitHub Pages on push to `main`.
 
-This site doubles as a sandbox for club members to practice frontend development. You don't need any prior experience to contribute.
+## What this is
+
+This site is one of the club's hands-on coding projects -- a place to learn and practice software stuff against something you actually care about. No prior experience needed; if you've never opened a code editor before, this is a fine place to start.
+
+Other things the club has built or is building:
+
+- **machine-vision point stick scoring** -- camera watches the table, reads point sticks, tracks the score
+- **discord bot** -- handles pickup games, reminders, etc
+- **ELO tracker** -- powers the leaderboard on this site
+- ...and whatever you want to take on next. talk to an officer if you have an idea
+
+You don't have to be an officer or a regular to contribute. Pick something small, open a PR, ask questions in Discord.
 
 ## Prerequisites
 
@@ -34,37 +45,58 @@ Open http://localhost:5173 in your browser. The page auto-reloads when you save 
 ```
 src/
   main.tsx              -- app entry point, mounts React
-  App.tsx               -- composes all the page sections
+  App.tsx               -- router + top-level layout (Nav, routes, Footer)
   App.css               -- all component styles
   index.css             -- global reset, CSS variables (colors, fonts)
-  config.ts             -- URLs, schedule data, card content
+  config.ts             -- URLs, schedule data, officers, projects, season config
+  pages/
+    Home.tsx              -- the long scrolling landing page
+    ProjectsPage.tsx      -- /projects, club software projects
+    RulesetPage.tsx       -- /ruleset, house rules
+    StandingsPage.tsx     -- /standings, season scoring
+    LeaderboardPage.tsx   -- /leaderboard, fetches CSV from the tracker
   components/
-    Nav.tsx              -- top navigation bar
-    Hero.tsx             -- big hero banner at the top
-    About.tsx            -- "What We're About" card section
-    Schedule.tsx         -- weekly meetup schedule
-    Learn.tsx            -- learning resources card section
-    Footer.tsx           -- footer with social links
+    Nav.tsx               -- top navigation bar
+    Hero.tsx              -- hero banner with the tile fan
+    About.tsx             -- "we play riichi mahjong" intro
+    Meetups.tsx           -- photo strip from past sessions
+    Schedule.tsx          -- weekly meetup schedule
+    FirstTime.tsx         -- "your first monday" + officer list
+    Footer.tsx            -- footer with social links
+    Tile.tsx              -- single mahjong tile (sprites a tile from tiles.png)
+    Lightbox.tsx          -- image lightbox used by Meetups
+    PlacementBar.tsx      -- 1st/2nd/3rd/4th distribution bar on leaderboard
+  lib/
+    leaderboard.ts        -- CSV parsing for the leaderboard sheet
+    standings.ts          -- CSV parsing + per-game m-league scoring
+  styles/
+    *.css                 -- per-section styles, all imported by App.css
   assets/
-    icons/
-      discord.svg        -- Discord logo
-      github.svg         -- GitHub logo
+    icons/                 discord.svg, github.svg
+    meetups/               meetN.webp -- photos used in the Meetups strip
+    tiles/                 tiles.png (sprite atlas), felt.jpg (background)
 public/
-  favicon.svg            -- browser tab icon
+  404.html                 static fallback for GitHub Pages
+  og-image.png             social share preview
 ```
 
 ### Where things live
 
-- **Want to change text content?** Edit `src/config.ts`. Schedule times, card text, and URLs are all there.
-- **Want to change how something looks?** Edit `src/App.css`. Styles are organized by section with comments like `/* ---- NAV ---- */`.
-- **Want to change page structure?** Edit the component in `src/components/`. Each file is one section of the page.
+- **Want to change text content?** Edit `src/config.ts`. Schedule, officers, projects, season config, and most URLs are all there.
+- **Want to change how something looks?** Edit the relevant file in `src/styles/` -- one CSS file per section (`nav.css`, `hero.css`, `about.css`, etc.). All of them are pulled in via `App.css`.
+- **Want to change page structure?** Edit the component in `src/components/` (one file per page section), or `src/pages/` for whole-page layouts.
+- **Add a new route?** Add a `<Route>` in `src/App.tsx` and a file under `src/pages/`. We use `HashRouter` because GitHub Pages doesn't do server-side rewrites.
 - **Colors** are CSS variables defined at the top of `src/index.css`. Change them there and they update everywhere.
 
 ### Shared styles
 
-The classes `.card-grid`, `.card`, and `.section-alt` are shared across multiple sections (About and Learn both use them). If you change these, check both sections.
+`.container`, `.eyebrow`, `.section-alt`, and `.card`-style classes are shared across sections. If you tweak them, scan the page to make sure you didn't break a section you weren't editing.
 
-Section-specific classes like `.nav-*`, `.hero-*`, `.schedule-*`, `.footer-*` only affect their own section.
+Section-specific classes like `.nav-*`, `.hero-*`, `.schedule-*`, `.lb-*`, `.footer-*` only affect their own area.
+
+### Tile sprites
+
+`Tile.tsx` slices `src/assets/tiles/tiles.png` -- a sprite atlas from the [autotable](https://github.com/pwmarcz/autotable) project (CC BY-NC-SA). If you change the atlas, the sprite math in `Tile.tsx` needs to match the new layout.
 
 ## Making changes
 
@@ -149,15 +181,15 @@ If you want to create your own site like this from scratch:
 
 ## Contribution ideas
 
-Here are some things you could build. Pick whatever sounds fun.
+Pick whatever sounds fun.
 
-- Fill in the About and Learn sections with real content
-- Add a photo gallery section
-- Build an events/tournament calendar
-- Create a yaku reference page with tile images
-- Add dark mode
-- Build a scoring calculator
-- Add page transitions or scroll animations
+- yaku reference page with tile images (we already have the sprite atlas)
+- in-browser scoring calculator (han/fu -> payouts)
+- tournament/bracket page for one-off events
+- dark mode
+- scroll/page transitions
+- improvements to the leaderboard page (charts over time, head-to-head, etc.)
+- whatever bug or rough edge bothers you. open an issue first if you want feedback before building
 
 ## Useful links
 

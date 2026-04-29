@@ -1,0 +1,102 @@
+/* ============ about ============ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-copy h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  max-width: 18ch;
+}
+
+.about-copy p {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  margin-bottom: 1rem;
+  max-width: 58ch;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-tiles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.about-tile-stack {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.5rem;
+}
+
+.about-caption {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.04em;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  width: 100%;
+  max-width: 300px;
+  margin: 0;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.85rem 1rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.about-stat:last-child {
+  border-right: none;
+}
+
+.about-stat dt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.about-stat dd {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--crimson);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+.about-stats-meta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+}
+

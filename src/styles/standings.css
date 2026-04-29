@@ -1,0 +1,123 @@
+/* ============ standings details ============ */
+.standings-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.standings-head-2 {
+  margin-top: 3rem;
+}
+
+.block-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.block-meta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.lb-placements {
+  width: 220px;
+  text-align: left;
+}
+
+.lb td.lb-placements {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.placement-bar {
+  flex: 1;
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(26, 24, 22, 0.06);
+  min-width: 80px;
+}
+
+.placement-bar > span {
+  display: block;
+  height: 100%;
+}
+
+.placement-bar .pb-1 { background: var(--crimson); }
+.placement-bar .pb-2 { background: var(--gold); }
+.placement-bar .pb-3 { background: rgba(26, 24, 22, 0.35); }
+.placement-bar .pb-4 { background: rgba(26, 24, 22, 0.6); }
+
+.placement-counts {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-mute);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.elo-delta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.elo-delta.delta-up { color: #2E7D4E; }
+.elo-delta.delta-down { color: var(--crimson); }
+.elo-delta.delta-flat { color: var(--ink-mute); }
+
+.unranked-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.unranked-card {
+  padding: 0.85rem 1rem;
+  background: var(--bone);
+  border: 1px solid rgba(26, 24, 22, 0.08);
+  border-radius: 8px;
+}
+
+.unranked-name {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.unranked-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.83rem;
+  color: var(--ink-mute);
+}
+
+.unranked-elo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.unranked-dot {
+  opacity: 0.5;
+}
+
+.nav-links a.is-active {
+  color: var(--bone);
+}
+

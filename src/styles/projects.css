@@ -1,0 +1,104 @@
+/* ============ projects ============ */
+.projects-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.project-card {
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.project-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.project-status {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.project-status.status-shipped {
+  background: rgba(46, 125, 78, 0.12);
+  color: #2E7D4E;
+}
+
+.project-status.status-in-progress {
+  background: rgba(200, 162, 91, 0.18);
+  color: #8a6520;
+}
+
+.project-status.status-wanted {
+  background: rgba(158, 27, 50, 0.1);
+  color: var(--crimson);
+}
+
+.project-blurb {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.project-tech {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.02em;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--crimson);
+  margin-left: auto;
+}
+
+.project-link svg {
+  width: 11px;
+  height: 11px;
+  transition: transform 0.2s;
+}
+
+.project-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
