@@ -87,10 +87,10 @@ export type Project = {
 }
 
 export const MEETUPS: MeetupItem[] = [
-  { src: meet5, alt: 'chombo...!' },
-  { src: meet4, alt: 'chinitsu kazoe yakuman' },
+  { src: meet5, alt: 'jeffrey commits a chombo' },
+  { src: meet4, alt: 'tim\'s chinitsu sanbaiman' },
   { src: meet1, alt: 'will got a dope ass suuankou', position: '50% 85%' },
-  { src: meet3, alt: 'thirteen orphans' },
+  { src: meet3, alt: 'joel\'s first yakuman, thirteen orphans' },
 ]
 
 export const OFFICERS: Officer[] = [

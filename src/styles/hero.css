@@ -47,6 +47,10 @@
   transition: transform 0.2s ease;
 }
 
+.hero-hand-agari {
+  margin-left: 1.25rem;
+}
+
 @media (max-width: 1024px) {
   .hero-hand { transform: scale(0.8); margin-bottom: 1.5rem; }
 }

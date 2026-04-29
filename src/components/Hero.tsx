@@ -1,32 +1,29 @@
+import { useMemo } from 'react'
 import { DISCORD_URL } from '../config'
 import discordIcon from '../assets/icons/discord.svg'
-import Tile, { type TileName } from './Tile'
+import Tile from './Tile'
+import { randomDealtHand } from '../lib/mahjong'
 
-const HAND: { name: TileName; tilt: number }[] = [
-  { name: '3m', tilt: -2 },
-  { name: '4m', tilt: 1 },
-  { name: '0m', tilt: -1 },
-  { name: '4p', tilt: 2 },
-  { name: '0p', tilt: -1 },
-  { name: '6p', tilt: 1 },
-  { name: '0s', tilt: -2 },
-  { name: '6s', tilt: 2 },
-  { name: '7s', tilt: -1 },
-  { name: 'chun', tilt: 1 },
-  { name: 'chun', tilt: -1 },
-  { name: 'chun', tilt: 2 },
-  { name: 'haku', tilt: -2 },
-  { name: 'haku', tilt: 1 },
-]
+const TILTS = [-2, 1, -1, 2, -1, 1, -2, 2, -1, 1, -1, 2, -2, 1]
 
 export default function Hero() {
+  // fresh hand on each page load; tilt pattern stays fixed for visual rhythm.
+  // agari is the winning tile, displayed offset to the right.
+  const { closed, agari } = useMemo(() => randomDealtHand(), [])
+
   return (
     <header className="hero">
       <div className="hero-inner">
         <div className="hero-hand" aria-hidden="true">
-          {HAND.map((t, i) => (
-            <Tile key={i} name={t.name} tilt={t.tilt} size={62} />
+          {closed.map((name, i) => (
+            <Tile key={i} name={name} tilt={TILTS[i]} size={62} />
           ))}
+          <Tile
+            name={agari}
+            tilt={TILTS[13]}
+            size={62}
+            className="hero-hand-agari"
+          />
         </div>
         <h1>Crimson Tiles</h1>
         <p>
