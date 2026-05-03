@@ -10,7 +10,9 @@ import {
 import {
   type Game,
   computeStandings,
+  fmtFreshness,
   fmtScore,
+  mostRecentGameDate,
   parseGameCsv,
 } from '../lib/standings'
 
@@ -93,6 +95,9 @@ export default function StandingsPage() {
                 <h2 className="block-title">rankings</h2>
                 <span className="block-meta">
                   {ranked.length} players &middot; {seasonGames.length} games this season
+                  {games.length > 0 && (
+                    <> &middot; {fmtFreshness(mostRecentGameDate(games))}</>
+                  )}
                 </span>
               </div>
 

@@ -150,8 +150,9 @@ export const PROJECTS: Project[] = [
     name: 'club discord bot',
     status: 'in-progress',
     blurb:
-      "basic discord bot functions that will integrate with game score tracking & probably have other features in the future.",
-    tech: 'python, discord.py',
+      "scoring + standings slash commands, with more on the way. joseff's project. don't know rust? perfect excuse to pick it up.",
+    tech: 'rust, serenity',
+    url: 'https://github.com/crimson-tiles/discord-bot',
   },
   {
     name: 'ELO tracker',

@@ -83,3 +83,31 @@ export function computeStandings(games: Game[]): Standing[] {
 export function fmtScore(n: number): string {
   return `${n > 0 ? '+' : ''}${n.toFixed(1)}`
 }
+
+export function mostRecentGameDate(games: Game[]): string | null {
+  if (games.length === 0) return null
+  let max = games[0].date
+  for (const g of games) {
+    if (g.date > max) max = g.date
+  }
+  return max
+}
+
+export function daysAgo(dateStr: string, today: Date = new Date()): number {
+  const then = new Date(`${dateStr}T00:00:00`)
+  const t = new Date(`${today.toISOString().slice(0, 10)}T00:00:00`)
+  const ms = t.getTime() - then.getTime()
+  return Math.max(0, Math.floor(ms / 86_400_000))
+}
+
+export function fmtFreshness(dateStr: string | null, now: Date = new Date()): string {
+  if (!dateStr) return ''
+  const d = daysAgo(dateStr, now)
+  const label = new Date(`${dateStr}T00:00:00`).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+  })
+  if (d === 0) return `last game: ${label} (today)`
+  if (d === 1) return `last game: ${label} (yesterday)`
+  return `last game: ${label} (${d} days ago)`
+}

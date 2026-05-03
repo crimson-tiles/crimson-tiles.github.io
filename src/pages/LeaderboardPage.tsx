@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
+  GAMES_CSV_URL,
   LEADERBOARD_CSV_URL,
   RANKED_MIN_GAMES,
   SEASON_LABEL,
   TRACKER_URL,
 } from '../config'
 import { type Row, parseCsv } from '../lib/leaderboard'
+import { fmtFreshness, mostRecentGameDate, parseGameCsv } from '../lib/standings'
 import PlacementBar from '../components/PlacementBar'
 
 function EloDelta({ row }: { row: Row }) {
@@ -18,6 +20,7 @@ function EloDelta({ row }: { row: Row }) {
 
 export default function LeaderboardPage() {
   const [rows, setRows] = useState<Row[] | null>(null)
+  const [lastGameDate, setLastGameDate] = useState<string | null>(null)
   const [error, setError] = useState(false)
 
   useEffect(() => {
@@ -29,6 +32,15 @@ export default function LeaderboardPage() {
       })
       .then((t) => setRows(parseCsv(t)))
       .catch(() => setError(true))
+
+    // best-effort freshness signal; never blocks the leaderboard render
+    fetch(GAMES_CSV_URL)
+      .then((r) => (r.ok ? r.text() : null))
+      .then((t) => {
+        if (!t) return
+        setLastGameDate(mostRecentGameDate(parseGameCsv(t)))
+      })
+      .catch(() => {})
   }, [])
 
   const ranked = rows?.filter((r) => r.games >= RANKED_MIN_GAMES) ?? []
@@ -41,7 +53,8 @@ export default function LeaderboardPage() {
           <p className="eyebrow">leaderboard</p>
           <h1 className="page-title">standings.</h1>
           <p className="page-lede">
-            {SEASON_LABEL} &middot; live from the tracker. updates after each session.
+            {SEASON_LABEL} &middot; live from the tracker.
+            {lastGameDate && <> {fmtFreshness(lastGameDate)}.</>}
           </p>
           <ul className="rules">
             <li>
