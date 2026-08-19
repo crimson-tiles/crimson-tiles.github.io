@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Concept 3 (rev): three dragons (haku · hatsu · chun) -->
+  <!-- Hero-page natural-tilt aesthetic. Three tiles in a row at small tilts, like part of a hand. -->
+  <!-- Order: haku (blank-frame, white dragon) → hatsu (green 發) → chun (red 中) -->
+  <!-- Crimson chun lands on the right and ties to the brand. -->
+
+  <defs>
+    <linearGradient id="t3Face" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFCF6"/>
+      <stop offset="100%" stop-color="#F2EBDC"/>
+    </linearGradient>
+    <filter id="t3Shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="2" dy="3" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" fill="#FBF7F0"/>
+
+  <!-- Three dragons in a row, slight tilts mimicking the Hero hand -->
+  <g transform="translate(200, 220)">
+
+    <!-- haku (white dragon) — left, slight left tilt -->
+    <g transform="rotate(-3) translate(-160, -90)" filter="url(#t3Shadow)">
+      <rect width="100" height="145" rx="13" fill="url(#t3Face)" stroke="#3a3a3a" stroke-width="3"/>
+      <rect x="5" y="5" width="90" height="135" rx="9" fill="none" stroke="#E2D9C2" stroke-width="1"/>
+      <!-- haku internal decorative frame (canonical blank-with-frame look) -->
+      <rect x="22" y="32" width="56" height="80" rx="3" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+    </g>
+
+    <!-- hatsu (green dragon 發) — middle, slight right tilt -->
+    <g transform="rotate(2) translate(-50, -92)" filter="url(#t3Shadow)">
+      <rect width="100" height="145" rx="13" fill="url(#t3Face)" stroke="#3a3a3a" stroke-width="3"/>
+      <rect x="5" y="5" width="90" height="135" rx="9" fill="none" stroke="#E2D9C2" stroke-width="1"/>
+      <text x="50" y="100" font-family="'Noto Serif CJK SC', 'Songti SC', 'STSong', 'MS Mincho', 'Yu Mincho', serif" font-size="78" fill="#1B5E20" text-anchor="middle" font-weight="700">發</text>
+    </g>
+
+    <!-- chun (red dragon 中) — right, slight left tilt, drawn last so on top -->
+    <g transform="rotate(-2) translate(60, -90)" filter="url(#t3Shadow)">
+      <rect width="100" height="145" rx="13" fill="url(#t3Face)" stroke="#3a3a3a" stroke-width="3"/>
+      <rect x="5" y="5" width="90" height="135" rx="9" fill="none" stroke="#E2D9C2" stroke-width="1"/>
+      <text x="50" y="100" font-family="'Noto Serif CJK SC', 'Songti SC', 'STSong', 'MS Mincho', 'Yu Mincho', serif" font-size="78" fill="#9E1B32" text-anchor="middle" font-weight="700">中</text>
+    </g>
+
+  </g>
+</svg>

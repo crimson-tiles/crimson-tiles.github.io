@@ -7,6 +7,7 @@ import ProjectsPage from './pages/ProjectsPage'
 import RulesetPage from './pages/RulesetPage'
 import LeaderboardPage from './pages/LeaderboardPage'
 import StandingsPage from './pages/StandingsPage'
+import CardPreview from './pages/CardPreview'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/ruleset" element={<RulesetPage />} />
         <Route path="/standings" element={<StandingsPage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/card-preview" element={<CardPreview />} />
       </Routes>
       <Footer />
     </HashRouter>

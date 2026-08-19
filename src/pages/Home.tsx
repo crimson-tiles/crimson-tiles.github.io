@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Hero from '../components/Hero'
+import Announcement from '../components/Announcement'
 import About from '../components/About'
 import Meetups from '../components/Meetups'
 import Schedule from '../components/Schedule'
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <main id="main-content">
       <Hero />
+      <Announcement />
       <About />
       <Meetups />
       <Schedule />

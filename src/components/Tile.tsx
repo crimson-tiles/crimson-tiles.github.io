@@ -1,4 +1,4 @@
-import tilesPng from '../assets/tiles/tiles.png'
+import tilesSvg from '../assets/tiles/tiles.svg'
 
 export type TileName =
   | '1m' | '2m' | '3m' | '4m' | '5m' | '6m' | '7m' | '8m' | '9m'
@@ -8,7 +8,7 @@ export type TileName =
   | 'haku' | 'hatsu' | 'chun'
   | '0m' | '0p' | '0s'
 
-// each tile's [col, row] on the 8-wide tiles.png sprite atlas
+// each tile's [col, row] on the 8-wide tiles.svg sprite atlas
 const POSITIONS: Record<TileName, [number, number]> = {
   '1m': [0, 0], '2m': [1, 0], '3m': [2, 0], '4m': [3, 0],
   '5m': [4, 0], '6m': [5, 0], '7m': [6, 0], '8m': [7, 0],
@@ -30,12 +30,12 @@ type Props = {
   className?: string
 }
 
-// atlas: 8 cols, cell 64x80 (native aspect 1.25), total 512x512.
+// atlas: 8 cols, cell 32x40 (native aspect 1.25), total 256x256.
 // the painted face renders at native aspect; the DOM box can be taller (TILE_ASPECT),
 // and the leftover space fills with the .tile cream background as margin.
-const ATLAS_TOTAL = 512
-const ATLAS_CELL_W = 64
-const ATLAS_CELL_H = 80
+const ATLAS_TOTAL = 256
+const ATLAS_CELL_W = 32
+const ATLAS_CELL_H = 40
 const ATLAS_NATIVE_ASPECT = ATLAS_CELL_H / ATLAS_CELL_W
 
 const TILE_ASPECT = 1.32
@@ -71,7 +71,7 @@ export default function Tile({ name, size = 72, tilt = 0, className = '' }: Prop
           top: insetY,
           width: faceW,
           height: faceH,
-          backgroundImage: `url(${tilesPng})`,
+          backgroundImage: `url(${tilesSvg})`,
           backgroundSize: `${bgWidth}px ${bgHeight}px`,
           backgroundPosition: `-${col * faceW}px -${row * faceH}px`,
           backgroundRepeat: 'no-repeat',

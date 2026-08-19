@@ -42,7 +42,7 @@ export const SEASON_LABEL = currentSeason().label
 
 export const GITHUB_URL = 'https://github.com/crimson-tiles'
 
-export const NEXT_MEETING = 'tbd - keep an eye on discord'
+export const NEXT_MEETING = 'thu aug 27 - the quad, table 76'
 
 // dot next to "next:" in the nav. online = regular schedule running,
 // away = ad-hoc / between seasons / location uncertain, busy = off / canceled.
@@ -54,8 +54,40 @@ export const MEETING_DOT_PRESETS = {
 
 export type MeetingDotStatus = keyof typeof MEETING_DOT_PRESETS
 
-export const MEETING_DOT_STATUS: MeetingDotStatus = 'away'
+export const MEETING_DOT_STATUS: MeetingDotStatus = 'online'
 export const MEETING_DOT_COLOR = MEETING_DOT_PRESETS[MEETING_DOT_STATUS]
+
+// one-off banner on the home page. set to null when there's nothing on.
+// it hides itself once `until` passes so a finished event can't sit on the front page.
+export type Announcement = {
+  eyebrow: string
+  title: string
+  body: string
+  facts: { label: string; value: string }[]
+  until: string
+  // path under BASE_URL, so it works on a project page too
+  flier?: { label: string; path: string }
+}
+
+export const ANNOUNCEMENT: Announcement | null = {
+  eyebrow: 'get on board day',
+  title: 'come find us on the quad.',
+  body:
+    "we'll have sets out all evening. sit down for five minutes and we'll teach you a hand. " +
+    'no experience needed, nothing to bring.',
+  facts: [
+    { label: 'when', value: 'thu, aug 27 · 5-9 pm' },
+    { label: 'where', value: 'the quad, red zone' },
+    { label: 'table', value: '76' },
+  ],
+  until: '2026-08-27T21:00:00-05:00',
+  flier: { label: 'print a flier (pdf)', path: 'card-design/quad-flier-aug27.pdf' },
+}
+
+export function activeAnnouncement(now: Date = new Date()): Announcement | null {
+  if (!ANNOUNCEMENT) return null
+  return now <= new Date(ANNOUNCEMENT.until) ? ANNOUNCEMENT : null
+}
 
 export type MeetupItem = {
   src: string

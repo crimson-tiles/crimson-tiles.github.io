@@ -1,0 +1,89 @@
+/* ============ announcement ============ */
+.announcement {
+  padding: 3rem 1.5rem 0;
+}
+
+.announcement-card {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 2.25rem;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.35);
+}
+
+.announcement-copy h2 {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.announcement-copy p {
+  color: var(--ink-soft);
+  max-width: 54ch;
+}
+
+.announcement-copy .eyebrow {
+  margin-bottom: 0.6rem;
+}
+
+.announcement-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.announcement-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.announcement-fact {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.announcement-fact dt {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  min-width: 3.6rem;
+  flex-shrink: 0;
+}
+
+.announcement-fact dd {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.98rem;
+}
+
+.announcement-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.announcement-flier {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-mute);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  padding-bottom: 1px;
+}
+
+.announcement-flier:hover {
+  color: var(--crimson);
+  border-bottom-color: var(--crimson);
+}
