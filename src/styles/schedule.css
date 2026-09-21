@@ -1,4 +1,198 @@
 /* ============ schedule ============ */
+.schedule-block + .schedule-block {
+  margin-top: 3rem;
+}
+
+.schedule-block-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+/* dated meetings */
+.dates {
+  list-style: none;
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.35);
+  max-width: 44rem;
+}
+
+.date-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  column-gap: 1.5rem;
+  padding: 1.1rem 1.5rem;
+}
+
+.date-row + .date-row {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.date-stamp {
+  display: grid;
+  justify-items: center;
+  width: 3.75rem;
+  padding: 0.5rem 0 0.55rem;
+  background: var(--bone);
+  border-radius: 8px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.date-row.is-next .date-stamp {
+  background: var(--crimson);
+  color: var(--white);
+}
+
+.date-dow,
+.date-mon {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.date-day {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin: 0.2rem 0 0.25rem;
+}
+
+.date-when {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.75rem;
+}
+
+.date-time {
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.date-rel {
+  font-size: 0.85rem;
+  color: var(--crimson);
+  font-weight: 500;
+}
+
+.date-room {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  text-align: right;
+}
+
+.date-building {
+  display: block;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ink-mute);
+}
+
+.date-cal {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-mute);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  padding-bottom: 1px;
+  white-space: nowrap;
+}
+
+.date-cal:hover {
+  color: var(--crimson);
+  border-bottom-color: var(--crimson);
+}
+
+.date-cal:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* everything after the next meeting: one quiet line each */
+.date-row:not(.is-next) {
+  grid-template-columns: 6.75rem 1fr 5rem auto;
+  padding-block: 0.75rem;
+}
+
+.date-row:not(.is-next) .date-stamp {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  width: auto;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+
+.date-row:not(.is-next) .date-dow,
+.date-row:not(.is-next) .date-mon {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+}
+
+.date-row:not(.is-next) .date-day {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.date-row:not(.is-next) .date-time {
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.date-row:not(.is-next) .date-room {
+  font-size: 1rem;
+  text-align: right;
+}
+
+.date-row:not(.is-next) .date-building {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .date-row {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      'stamp when room'
+      'stamp cal  cal';
+    column-gap: 1rem;
+    row-gap: 0.35rem;
+    padding: 1rem 1.15rem;
+  }
+
+  .date-stamp { grid-area: stamp; }
+  .date-when { grid-area: when; }
+  .date-room { grid-area: room; }
+  .date-cal { grid-area: cal; justify-self: start; }
+
+  .date-row:not(.is-next) {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'stamp room'
+      'when  cal';
+    row-gap: 0.15rem;
+    padding: 0.8rem 1.15rem;
+  }
+
+  .date-row:not(.is-next) .date-cal { justify-self: end; }
+}
+
+/* standing schedule */
 .schedule-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

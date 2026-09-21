@@ -42,7 +42,8 @@ export const SEASON_LABEL = currentSeason().label
 
 export const GITHUB_URL = 'https://github.com/crimson-tiles'
 
-export const NEXT_MEETING = 'thu aug 27 - the quad, table 76'
+// nav "next:" pill reads from MEETINGS below and only falls back to this when nothing is upcoming.
+export const NEXT_MEETING_FALLBACK = 'see the discord'
 
 // dot next to "next:" in the nav. online = regular schedule running,
 // away = ad-hoc / between seasons / location uncertain, busy = off / canceled.
@@ -101,6 +102,16 @@ export type Officer = {
   discord?: string
 }
 
+// booked dates, listed under "coming up" on the home page. date is yyyy-mm-dd, start/end are
+// 24h HH:MM, all in Tuscaloosa time. finished meetings drop off on their own.
+export type Meeting = {
+  date: string
+  start: string
+  end: string
+  room: string
+  building: string
+}
+
 export type ScheduleItem = {
   title: string
   time: string
@@ -131,11 +142,24 @@ export const OFFICERS: Officer[] = [
   { role: 'officer', name: 'noah' },
 ]
 
+export const MEETINGS: Meeting[] = [
+  { date: '2026-09-21', start: '18:00', end: '21:30', room: 'LY132', building: 'Lloyd Hall' },
+  { date: '2026-09-28', start: '18:00', end: '21:30', room: 'LY202', building: 'Lloyd Hall' },
+  { date: '2026-10-05', start: '18:00', end: '21:30', room: 'LY132', building: 'Lloyd Hall' },
+  { date: '2026-10-12', start: '18:00', end: '21:30', room: 'LY132', building: 'Lloyd Hall' },
+  { date: '2026-10-19', start: '18:00', end: '21:30', room: 'LY202', building: 'Lloyd Hall' },
+  { date: '2026-10-26', start: '18:00', end: '21:30', room: 'LY132', building: 'Lloyd Hall' },
+  { date: '2026-11-02', start: '18:00', end: '21:30', room: 'LY132', building: 'Lloyd Hall' },
+  { date: '2026-11-09', start: '18:00', end: '21:30', room: 'LY132', building: 'Lloyd Hall' },
+  { date: '2026-11-16', start: '18:00', end: '21:30', room: 'LY202', building: 'Lloyd Hall' },
+  { date: '2026-11-30', start: '18:00', end: '21:30', room: 'LY132', building: 'Lloyd Hall' },
+]
+
 export const SCHEDULE: ScheduleItem[] = [
   {
     title: 'mondays on campus',
-    time: '6 - 10 pm',
-    location: 'UA Student Center',
+    time: '6 - 9:30 pm',
+    location: 'Lloyd Hall',
     description:
       "every week during the semester. beginners welcome every time, we have sets and can teach from scratch. just show up.",
   },

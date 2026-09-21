@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { NEXT_MEETING, MEETING_DOT_COLOR } from '../config'
+import { NEXT_MEETING_FALLBACK, MEETING_DOT_COLOR } from '../config'
+import { nextMeetingLabel } from '../lib/meetings'
 
 type SectionLink = { kind: 'section'; id: string; label: string }
 type RouteLink = { kind: 'route'; to: string; label: string }
@@ -36,7 +37,7 @@ export default function Nav() {
         </Link>
         <span className="nav-next" aria-label="Next meeting">
           <span className="nav-next-dot" aria-hidden="true" />
-          next: {NEXT_MEETING}
+          next: {nextMeetingLabel() ?? NEXT_MEETING_FALLBACK}
         </span>
         <button
           type="button"

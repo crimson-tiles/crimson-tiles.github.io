@@ -60,7 +60,7 @@ src/
     Hero.tsx              -- hero banner with the tile fan
     About.tsx             -- "we play riichi mahjong" intro
     Meetups.tsx           -- photo strip from past sessions
-    Schedule.tsx          -- weekly meetup schedule
+    Schedule.tsx          -- dated meetings + standing schedule
     FirstTime.tsx         -- "your first monday" + officer list
     Footer.tsx            -- footer with social links
     Tile.tsx              -- single mahjong tile (sprites a tile from tiles.png)
@@ -69,6 +69,7 @@ src/
   lib/
     leaderboard.ts        -- CSV parsing for the leaderboard sheet
     standings.ts          -- CSV parsing + per-game m-league scoring
+    meetings.ts           -- upcoming-meeting filtering, date/time formatting, calendar links
   styles/
     *.css                 -- per-section styles, all imported by App.css
   assets/
@@ -82,7 +83,7 @@ public/
 
 ### Where things live
 
-- **Want to change text content?** Edit `src/config.ts`. Schedule, officers, projects, season config, and most URLs are all there.
+- **Want to change text content?** Edit `src/config.ts`. Meeting dates (`MEETINGS`), the standing schedule, officers, projects, season config, and most URLs are all there. Add a row to `MEETINGS` and it shows up under "coming up" and in the nav's "next:" pill until it ends.
 - **Want to change how something looks?** Edit the relevant file in `src/styles/` -- one CSS file per section (`nav.css`, `hero.css`, `about.css`, etc.). All of them are pulled in via `App.css`.
 - **Want to change page structure?** Edit the component in `src/components/` (one file per page section), or `src/pages/` for whole-page layouts.
 - **Add a new route?** Add a `<Route>` in `src/App.tsx` and a file under `src/pages/`. We use `HashRouter` because GitHub Pages doesn't do server-side rewrites.
